@@ -1,0 +1,46 @@
+body {
+    position: absolute;
+    background: linear-gradient(45deg,#feac5e,#c779d0,#4bc0c8);
+}
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0 3px 0 3px;
+    padding: 0;
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+
+
+
+.login-box-1 {
+    position: absolute;
+    top: 160px;
+    left: 520px;
+    width: 440px;
+    height: 550px;
+    background-color: #ffe3e1;
+    border-radius: 25px;
+}
+
+.login-text2{
+    position: absolute;
+    top: 60px;
+    left: 160px;
+}
+.login-text1 {
+    position: absolute;
+    top: 40px;
+    left: 190px;
+}
+
+.login-all {
+
+    position: absolute;
+    top: 140px;
+    height: 300px;
+    left: 100px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/plugins/bootstrap/js/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/signin.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css2/login2.css">
+    <link rel="stylesheet" href="../static/css2/common.css" type="text/css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../static/js2/login1.js"></script>
+    <script src="../static/js2/login2.js"></script>
+</head>
+<body>
+
+<div class="section" id="w">
+    <div class="login-box-1">
+        <form action="/loginIn" method="post" >
+            <h1 class="login-text1">登录</h1>
+            <div class="login-all" align="center">
+                <div class="login-username">
+
+                    <label>
+                        账号: <input type="text" style="height: 30px" height="30px" id="username" name="username" placeholder="字母和数字构成,8-16位"/>
+                    </label>
+                </div>
+                <p style="color: red">
+
+                <p>
+                    <br>
+                <div class="login-password"><label>
+                    密码: <input type="password" style=" height: 30px" id="password" name="password" placeholder="小写字母和数字组成,8-16位"/>
+                </label></div>
+                <p style="color: red">
+
+                <p>
+
+                    <br>
+
+                    <label>
+                        &nbsp;   &nbsp;
+                        <input  class="login-input-1" type="submit" value="登录" />&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+
+                    <label> <input type="button" value="注册" class="login-input-2"
+                                   onclick="window.location.href='/ToRegister'"/>
+                    </label>
+
+                    <br>
+                    <br>
+                <h3><a href="/toPassword">忘记密码</a></h3>
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+</body>
+</html>

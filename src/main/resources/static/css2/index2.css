@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.hide{
+    display: none;
+}
+
+#right{
+    margin-left:300px;
+}
+#frame_main,.header,.center{
+    width:80%;
+}
+#frame_main{
+    position: absolute;
+    top: 120px;
+    left: 10%;
+    right: 10%;
+    height:800px;
+}

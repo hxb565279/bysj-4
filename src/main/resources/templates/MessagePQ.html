@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/main-left.css">
+    <script type="text/javascript" src="../static/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="../static/echarts/china.js"></script>
+    <style>
+        body {
+            background-image: url("../static/images/222.webp");
+        }
+    </style>
+</head>
+<body>
+<div th:replace="main::#headerbar"></div>
+
+<div   id="sidbar" class="container-fluid row">
+    <div class="row col-md-3">
+        <div class="col-md-9">
+            <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+                <li class="active">
+                    <a href="/toMain">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a href="#systemSetting" class="nav-header  collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-cog"></i>
+                        系统管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="systemSetting" class="nav nav-list collapse secondmenu   " style="height: 0px;">
+                        <li><a href="/user/list"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+                        <!--                        <li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>-->
+                        <li><a href="/logoSystem"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#userMeun" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-credit-card"></i>
+                        疫情数据管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="userMeun" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessageManager"><i class="glyphicon glyphicon-user"></i>疫情数据管理</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#articleMenu" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-globe"></i>
+                        疫情爬取管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="articleMenu" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessagePQ"><i class="glyphicon glyphicon-user"></i>国内疫情爬取</a></li>
+                        <li><a href="/MessagePQ2"><i class="glyphicon glyphicon-th-list"></i>国外疫情爬取</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#systemSetting4" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        图表统计
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="systemSetting4" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessagePQMap"><i class="glyphicon glyphicon-user"></i>疫情数据图表统计</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <i class="glyphicon glyphicon-fire "></i>
+                        关于疫情系统
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            疫情信息系统
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        姓名： 和学博
+                        学号： 18027240065
+                        计算机科学与技术软件外包1班
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            关闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                $('#myModal').modal('hide')
+            });
+        </script>
+    </div>
+    <div class="col-md-9" style="border: 0px solid #000000;margin: 0 auto;">
+        <br>
+        <div class="page-header"><h2 th:text="国内疫情情况">国内疫情情况如下</h2></div>
+        <br>
+
+<!--        <label>-->
+<!--            <a class="btn btn-sm" th:href="@{/(lan='zh_CN')}">中文</a>-->
+<!--            <a class="btn btn-sm" th:href="@{/(lan='en_US')}">英文</a>-->
+<!--        </label>-->
+        <table class="table table-hover" style="border: 1px  solid #000000;">
+            <thead>
+            <tr>
+                <th><p th:text="序号">地区</p></th>
+                <th><p th:text="地区">地区</p></th>
+                <th><p th:text="现有确诊">现有确诊</p></th>
+                <th><p th:text="累计确诊">累计确诊</p></th>
+                <th><p th:text="治愈">治愈</p></th>
+                <th><p th:text="死亡">死亡</p></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="DataBean:${dataList}">
+                <td  class="a12  " th:text="${DataBean['id']  }">name</td>
+                <td th:text="${DataBean['area']  }">name</td>
+                <td  class="info"  th:text="${DataBean['nowConfirm']}">nowConfirm</td>
+                <td th:text="${DataBean['confirm']}">confirm</td>
+                <td th:text="${DataBean['heal']}">heal</td>
+                <td  class="danger"  th:text="${DataBean['dead']}">dead</td>
+            </tr>
+            </tbody>
+
+            <script>
+            document.getElementsByClassName("a12");
+            </script>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

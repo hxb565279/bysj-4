@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body {
+            background-image: url("../static/images/222.webp");
+        }
+    </style>
+</head>
+<body>
+<div th:replace="main::#headerbar"></div>
+<div id="sidbar" class="container-fluid  row">
+    <div class="row col-md-3 ">
+        <div class="col-md-9">
+            <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+                <li class="active">
+                    <a href="main.html">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a href="#systemSetting" class="nav-header  collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-cog"></i>
+                        系统管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="systemSetting" class="nav nav-list collapse secondmenu   " style="height: 0px;">
+                        <li><a href="/user/list"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
+                        <li><a href="/logoSystem"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#userMeun" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-credit-card"></i>
+                        疫情数据管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="userMeun" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessageManager"><i class="glyphicon glyphicon-user"></i>疫情数据管理</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#articleMenu" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-globe"></i>
+                        疫情爬取管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="articleMenu" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessagePQ"><i class="glyphicon glyphicon-user"></i>国内疫情爬取</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>国外疫情爬取</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#systemSetting4" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        图表统计
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="systemSetting4" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i>疫情数据图标统计</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <i class="glyphicon glyphicon-fire "></i>
+                        关于疫情系统
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            $(function () {
+                $('#myModal').modal('hide')
+            });
+        </script>
+    </div>
+    <!--表格-->
+    <div class="content-wrapper col-md-9" id="rightContent">
+
+        <!-- 内容头部 -->
+        <!-- 正文区域 -->
+        <section class="content"> <!-- .box-body -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">用户列表</h3>
+                </div>
+                <div class="box-body">
+                    <!-- 数据表格 -->
+                    <div class="table-box row" >
+                        <!--数据列表-->
+                        <table id="dataList"
+                               class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th class="text-center">序号</th>
+                                <th class="text-center">用户名</th>
+                                <th class="text-center info">密码</th>
+                                <th class="text-center">操作</th>
+                                <th class="text-center danger">删除</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user:${pageInfo}">
+                                <td class="text-center" th:text="${user.getId()}"></td>
+                                <td class="text-center active" th:text="${user.getName()}"></td>
+                                <td class="text-center warning" th:text="${user.getPassword()}"></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-info  btn-primary " data-toggle="modal"
+                                            data-target="#staticBackdrop"
+                                            th:onclick=" 'javascript:updateUser1('+${user.getId()}+');'">修改
+                                    </button>
+                                </td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-info  btn-primary "
+                                            th:onclick=" 'javascript:deleteCustomerById('+${user.getId()}+');'">删除
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--数据列表/-->
+                    </div>
+                    <!-- 数据表格 /-->
+                </div>
+                </box-body>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    疫情信息系统
+                </h4>
+            </div>
+            <div class="modal-body">
+                姓名： 和学博
+                学号： 18027240065
+                计算机科学与技术软件外包1班
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--模态-->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">数据修改</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form   id="form_update_customer">
+                    <div class="item">
+                        <p class="fl">id</p>
+                        <input class="fr" type="text" name="id" id="ed_id"/>
+                    </div>
+                    <div class="item">
+                        <p class="fl">用户名</p>
+                        <input class="fr" type="text" name="name" id="ed_username"/>
+                    </div>
+                    <div class="item">
+                        <p class="fl">密码</p>
+                        <input class="fr" type="text" id="ed_password" name="password"/>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" onclick="updateCustomer1()" class="btn btn-primary">确认修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    //根据ID显示数据
+    function updateUser1(id) {
+        $.ajax({
+            type: "get",
+            url: "/getUserById",
+            data: {"id": id},
+            success: function (data) {
+                $("#ed_id").val(data.id);
+                $("#ed_username").val(data.name);
+                $("#ed_password").val(data.password);
+            }
+        })
+    }
+
+    // 执行修改客户操作
+    function updateCustomer1() {
+        $.post("/updateCustomer1", $("#form_update_customer").serialize(), function (data) {
+            if (data === "OK") {
+                alert("客户信息更新成功！");
+                window.location.reload();
+            } else {
+                alert("客户信息更新失败！");
+                window.location.reload();
+            }
+        });
+    }
+
+    /**
+     * 添加
+     */
+    function createCustomer() {
+        $.post("addCustomer", $("#form1").serialize(), function (data) {
+            if (data === "OK") {
+                alert("客户创建成功");
+                window.location.reload();
+            } else {
+                alert("客户创建失败");
+                window.location.reload();
+            }
+        })
+    }
+
+    /**
+     * 删除
+     */
+    function deleteCustomerById(id) {
+        $.ajax({
+                type: "post",
+                url: "/deleteUserById",
+                data: {"id": id},
+                success(data) {
+                    if (data === "OK") {
+                        alert("客户删除成功");
+                        window.location.reload();
+                    } else {
+                        alert("客户删除失败");
+                        window.location.reload();
+                    }
+                }
+
+            }
+        )
+    }
+
+
+</script>
+
+</body>
+</html>

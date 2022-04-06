@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <itle>信息管理itle>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/main-left.css">
+
+
+    <style>
+        body {
+            background-image: url("../static/images/222.webp");
+        }
+    </style>
+</head>
+<body>
+<div th:replace="main::#headerbar"></div>
+
+<!--主页左部-->
+<div id="sidbar" class="container-fluid row">
+    <div class="row col-md-3">
+        <div class="col-md-9">
+            <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+                <li class="active">
+                    <a href="/toMain">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a href="#systemSetting" class="nav-header  collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-cog"></i>
+                        系统管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="systemSetting" class="nav nav-list collapse secondmenu   " style="height: 0px;">
+                        <li><a href="/user/list"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+                        <!--                        <li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>-->
+                        <li><a href="/logoSystem"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#userMeun" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-credit-card"></i>
+                        疫情数据管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="userMeun" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessageManager"><i class="glyphicon glyphicon-user"></i>疫情数据管理</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#articleMenu" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-globe"></i>
+                        疫情爬取管理
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="articleMenu" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessagePQ"><i class="glyphicon glyphicon-user"></i>国内疫情爬取</a></li>
+                        <li><a href="/MessagePQ2"><i class="glyphicon glyphicon-th-list"></i>国外疫情爬取</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#systemSetting4" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        图表统计
+                        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="systemSetting4" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="/MessagePQMap"><i class="glyphicon glyphicon-user"></i>疫情数据图标统计</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <i class="glyphicon glyphicon-fire "></i>
+                        关于疫情系统
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--模态框-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            疫情信息系统
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        姓名： 和学博
+                        学号： 18027240065
+                        计算机科学与技术软件外包1班
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            关闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                $('#myModal').modal('hide')
+            });
+        </script>
+    </div>
+    <!--尤部-->
+    <div class="col-md-9">
+        <!-- 正文区域 -->
+        <section class="content"> <!-- .box-body -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">患者列表</h3>
+                </div>
+
+                <div class="box-body">
+
+                    <!-- 数据表格 -->
+                    <div class="table-box" style="border: #3C4049">
+
+                        <!--工具栏-->
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default  btn-info  btn-primary "
+                                            data-toggle="modal"
+                                            data-target="#staticBackdrop" title="新建">
+                                        <i class="fa fa-file-o"></i> 新建
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--                        <div class="box-tools pull-right">-->
+                        <!--                            <div class="has-feedback">-->
+                        <!--                                <form action="pattient/get" method="get">-->
+                        <!--                                    <input type="text" name="name"class="form-control input-sm"-->
+                        <!--                                           placeholder="搜索"> <span-->
+                        <!--                                        class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                        <!--                                    <input type="submit" >-->
+
+                        <!--                                </form>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--工具栏/-->
+
+                        <!--数据列表-->
+                        <table id="dataList"
+                               class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">姓名</th>
+                                <th class="text-center">身份证号码</th>
+                                <th class="text-center">性别</th>
+                                <th class="text-center">电话</th>
+                                <th class="text-center">住址</th>
+                                <th class="text-center info">住院日期</th>
+                                <th class="text-center">医院</th>
+                                <th class="text-center danger">核算检测</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="patient:${pageInfo.getList()}">
+                                <td class="text-center" th:text="${patient['baseId']}"></td>
+                                <td class="text-center" th:text="${patient['username']}"></td>
+                                <td class="text-center" th:text="${patient['id']}"></td>
+                                <td class="text-center" th:text="${patient['sex']}"></td>
+                                <td class="text-center" th:text="${patient['elephone']}"></td>
+                                <td class="text-center" th:text="${patient['address']}"></td>
+                                <td class="text-center info"
+                                    th:text="${#dates.format(patient['onsetDate'],'yyyy-MM-dd')}"></td>
+                                <td class="text-center" th:text="${patient['hospital']}"></td>
+                                <td class="text-center danger" th:text="${patient['symptoms']}"></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-success btn-info  btn-primary "
+                                            data-toggle="modal"
+                                            data-target="#staticBackdrop1"
+                                            th:onclick=" 'javascript:updatePatient1('+${patient['baseId']}+');'">编辑
+                                    </button>
+                                    <button type="button" class="btn btn-danger"
+                                            th:onclick="'javascript:deletePatientById('+${patient['baseId']}+');'">删除数据
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--数据列表/-->
+                    </div>
+                    <!-- 数据表格 /-->
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel1">病例编辑</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form   id="form_update_patient1">
+                                <div class="modal-body">
+                                    <div class="col-md-2 title">ID</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="baseId" id="baseId"
+                                               placeholder="ID" value="">
+                                    </div>
+                                    <div class="col-md-2 title">姓名</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="username" id="username"
+                                               placeholder="姓名" value="">
+                                    </div>
+                                    <div class="col-md-2 title">身份证</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="id" id="id"
+                                               placeholder="身份证" value="">
+                                    </div>
+                                    <div class="col-md-2 title">性别</div>
+                                    <div class="col-md-4 data">
+                                        <select class="form-control select2" style="width: 100%"
+                                                name="sex">
+                                            <option value="男" selected="selected">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 title">电话</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="elephone" id="elephone"
+                                               placeholder="电话" value="">
+                                    </div>
+                                    <div class="col-md-2 title">住址</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="address" id="address"
+                                               placeholder="住址" value="">
+                                    </div>
+<!--                                    <div class="col-md-2 title info">住院时间</div>-->
+<!--                                    <div class="col-md-4 data">-->
+<!--                                        <input type="date" class="form-control" name="onsetDate" id="onsetDate"-->
+<!--                                               placeholder="住院时间" value="">-->
+<!--                                    </div>-->
+                                    <div class="col-md-2 title">医院</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="hospital" id="hospital"
+                                               placeholder="医院" value="">
+                                    </div>
+                                    <div class="col-md-2 title danger">症状</div>
+                                    <div class="col-md-4 data">
+                                        <select class="form-control select2" style="width: 100%"
+                                                name="symptoms">
+                                            <option value="阳性" selected="selected">阳性</option>
+                                            <option value="阴性">阴性</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" onclick="updatePatient()" class="btn btn-primary">确认</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <script >
+                    // 执行修改客户操作
+                    function updatePatient() {
+                        $.post("/updatePatient", $("#form_update_patient1").serialize(), function (data) {
+                            if (data === "OK") {
+                                alert("信息更新成功！");
+                                window.location.reload();
+                            } else {
+                                alert("信息更新失败！");
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    //根据ID显示数据
+                    function updatePatient1(baseId) {
+                        $.ajax({
+                            type: "get",
+                            url: "/updatePatientById",
+                            data: {"baseId": baseId},
+                            success: function (data) {
+                                $("#baseId").val(data.baseId);
+                                $("#id").val(data.id);
+                                $("#username").val(data.username);
+                                $("#address").val(data.address);
+                                $("#elephone").val(data.elephone);
+                                $("#hospital").val(data.hospital);
+                                $("#onsetDate").val(data.onsetDate);
+                            }
+                        })
+                    }
+                    /**
+                     * 删除
+                     */
+                    function deletePatientById(baseId) {
+                        $.ajax({
+                                type: "post",
+                                url: "/toDead",
+                                data: {"baseId": baseId},
+                                success(data) {
+                                    if (data === "OK") {
+                                        alert("删除成功");
+                                        window.location.reload();
+                                    } else {
+                                        alert("删除失败");
+                                        window.location.reload();
+                                    }
+                                }
+
+                            }
+                        )
+                    }
+                </script>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">病例建立</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="/patient/add" method="post" id="form_update_customer">
+                                <div class="modal-body">
+                                    <div class="col-md-2 title">姓名</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="username"
+                                               placeholder="姓名" value="">
+                                    </div>
+                                    <div class="col-md-2 title">身份证</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="id"
+                                               placeholder="身份证" value="">
+                                    </div>
+                                    <div class="col-md-2 title">性别</div>
+                                    <div class="col-md-4 data">
+                                        <select class="form-control select2" style="width: 100%"
+                                                name="sex">
+                                            <option value="男" selected="selected">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 title">电话</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="elephone"
+                                               placeholder="电话" value="">
+                                    </div>
+                                    <div class="col-md-2 title">住址</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="address"
+                                               placeholder="住址" value="">
+                                    </div>
+                                    <div class="col-md-2 title info">住院时间</div>
+                                    <div class="col-md-4 data">
+                                        <input type="date" class="form-control" name="onsetDate"
+                                               placeholder="住院时间" value="">
+                                    </div>
+                                    <div class="col-md-2 title">医院</div>
+                                    <div class="col-md-4 data">
+                                        <input type="text" class="form-control" name="hospital"
+                                               placeholder="医院" value="">
+                                    </div>
+                                    <div class="col-md-2 title danger">症状</div>
+                                    <div class="col-md-4 data">
+                                        <select class="form-control select2" style="width: 100%"
+                                                name="symptoms">
+                                            <option value="阳性" selected="selected">阳性</option>
+                                            <option value="阴性">阴性</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">确认</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </box-body>
+                <div class="box-footer">
+                    <div class="pull-left">
+                        <div class="form-group form-inline">
+                            总共[[${pageInfo.getPages()}]] 页，共[[${pageInfo.getTotal()}]]条数据。 每页 25条
+                        </div>
+                    </div>
+
+                    <div class="box-tools pull-right">
+                        <ul class="pagination" th:each="pageNum:${#numbers.sequence(1,pageInfo.getPages())}">
+                            <li th:class="${pageNum!=pageInfo.getPageNum()}?'':'active'"><a
+                                    th:href="@{/MessageManager(page=${pageNum},size=${pageInfo.getPageSize()})}">[[${pageNum}]]</a>
+                            </li>
+                        </ul>
+                        <ul class="pagination">
+                            <li><a th:href="@{/MessageManager(page=1,size=${pageInfo.getPageSize()})}"
+                                   aria-label="Previous">首页</a></li>
+                            <li>
+                                <a th:href="@{/MessageManager(page=${pageInfo.pageNum}-1,size=${pageInfo.getPageSize()})}">上一页</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/MessageManager(page=${pageInfo.pageNum}+1,size=${pageInfo.getPageSize()})}">下一页</a>
+                            </li>
+                            <li><a th:href="@{/MessageManager(page=${pageInfo.pages},size=${pageInfo.getPageSize()})}"
+                                   aria-label="Next">尾页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

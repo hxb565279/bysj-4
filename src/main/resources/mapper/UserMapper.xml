@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hxb.demo10.mapper.UserMapper">
+
+<!--    <select id="getInfo" parameterType="String" resultType="com.hxb.demo10.bean.UserBean">-->
+<!--        SELECT * FROM user WHERE name = #{name} AND password = #{password}-->
+<!--    </select>-->
+
+
+    <insert id="register" parameterType="com.hxb.demo10.bean.UserBean" >
+          insert into user(username,password) values (#{name },#{password})
+    </insert>
+</mapper>

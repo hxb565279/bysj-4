@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css2/login2.css">
+    <link rel="stylesheet" href="../static/css2/common.css" type="text/css">
+    <link rel="stylesheet" href="../static/css2/register1.css" type="text/css">
+
+    </script>
+    <script src="../static/js2/register1.js"></script>
+    <script src="../static/js2/register3.js"></script>
+    <script src="../static/js2/register4.js"></script>
+    <script src="../static/js2/register5.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css2/login2.css">
+    <link rel="stylesheet" href="../static/css2/common.css" type="text/css">
+
+    <script src="../static/js2/login1.js"></script>
+    <script src="../static/js2/login2.js"></script>
+    <style>
+        body{
+            background-image: url("./static/images2/3.jpeg");
+        }
+    </style>
+    <script>
+
+        function check() {
+            let password = $("#password1").val();
+            let re_password = $("#re_password1").val();
+            if (password === re_password) {
+                return true;
+            }
+            alert("两次密码不对,两次密码应该一致");
+            return false;
+        }
+
+    </script>
+</head>
+<body>
+<div class="section" id="w">
+    <div class="login-box-1">
+        <form action="/Register" method="post" onsubmit="return check()">
+            <h1 class="login-text1">注册</h1>
+            <div class="login-all" align="center">
+                <div class="login-username">
+                    <label>
+                        账号: <input type="text" style="height: 30px" height="30px" id="username1" name="username"
+                                   placeholder="字母和数字构成,8-16位">
+                    </label>
+                </div>
+                <p id="message4"></p>
+                <br>
+                <div class="login-id-card">
+                    <label>
+                        身份: <input type="text" style="height: 30px" id="id_card" name="id_card" placeholder="身份证">
+                    </label>
+                </div>
+                <br>
+                <p id="id_card1"></p>
+                <p id="message2"></p>
+                <div class="login-password"><label>
+                    密码: <input type="password" style=" height: 30px" id="password1" name="password"
+                               placeholder="数字和字母构成,8-16位">
+                </label></div>
+                <br>
+                <div class="login-password"><label>
+                    密码: <input type="password" style=" height: 30px" id="re_password1" name="re_password">
+                </label></div>
+                <br>
+                <br>
+                <label>
+                    &nbsp; &nbsp; <input class="login-input-3" type="submit" value="注册"></label>
+                <label> <input type="button" class="login-input-4" value="登录"
+                               onclick="window.location.href='/login'">
+                </label>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+.login-input-3{
+
+    outline: none;
+    background-color: orange;
+    border: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    cursor: pointer;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 9px #bbb;
+}
+
+.login-input-3:hover{
+    background-color:darkorange;
+}
+.login-input-3:active{
+    box-shadow: 0 3px #aaa;
+    background-color: darkorange;
+    transform: translateY(4px);
+}
+.login-input-4{
+
+    outline: none;
+    background-color: orange;
+    border: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    cursor: pointer;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 9px #bbb;
+}
+
+.login-input-4:hover{
+    background-color:darkorange;
+}
+.login-input4:active{
+    box-shadow: 0 3px #aaa;
+    background-color: darkorange;
+    transform: translateY(4px);
+}

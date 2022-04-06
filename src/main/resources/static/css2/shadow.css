@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+}
+
+
+.shadow1{
+
+    width: 360px;
+    height: 440px;
+    background-color: #c779d0;
+    border-radius: 25px;
+    position: absolute;
+    top: 200px;
+    left: 780px;
+
+
+}
+.shadow-form1{
+   width: 320px;
+    height: 380px;
+    border-radius: 25px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}
+
+.shadow1-text1{
+    position: absolute;
+    background: linear-gradient(to left,#d3959b,#bfe6ba);
+    left: 60px;
+    border-radius: 20px;
+}
+.shadow1-input1{
+    position: absolute;
+    top: 120px;
+    left: 30px;
+}
+.shadow1-button1{
+    position: absolute;
+    top: 270px;
+    left: 44px;
+}
+.shadow1-href{
+    position: absolute;
+    top: 350px;
+    left: 75px;
+}
+
+.shadow1-input2{
+    background-color: aquamarine;
+    border: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    cursor: pointer;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 9px #bbb;
+}
+
+.shadow1-input2:hover{
+    background-color:darkorange;
+}
+.shadow1-input2:active{
+    box-shadow: 0 3px #aaa;
+    background-color: darkorange;
+    transform: translateY(4px);
+}
+
+.shadow1-input3{
+    background-color: aquamarine;
+    border: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    cursor: pointer;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 9px #bbb;
+}
+
+.shadow1-input3:hover{
+    background-color:darkorange;
+}
+.shadow1-input3:active{
+    box-shadow: 0 3px #aaa;
+    background-color: darkorange;
+    transform: translateY(4px);
+}

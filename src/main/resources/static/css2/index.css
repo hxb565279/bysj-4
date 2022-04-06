@@ -1,0 +1,60 @@
+﻿@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?tomleg');
+    src: url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+    url('../fonts/icomoon.woff?tomleg') format('woff'),
+    url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/*版心*/
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0 3px 0 3px;
+    padding: 0;
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+.main{
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+ }
+.focus{
+    width: 721px;
+    height: 455px;
+
+    float: left;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

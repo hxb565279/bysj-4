@@ -1,0 +1,347 @@
+*{margin:0;padding:0;}
+p,h1,h2,h3,h4,h5,h6,dl,dt,dd,ol,ul,li{margin:0;padding:0;}
+li{list-style:none;}
+a{text-decoration:none;color:#000;}
+img{display:block;}
+input{border: none;}
+/*设置版心*/
+body{
+   background-image: url("../images2/222.jpg");
+}
+.mian{
+    width:1200px;
+    margin:0 auto;
+}
+.fl{float:left;}
+.fr{float:right;}
+.clearFixed:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+
+.header{
+    height:160px;
+}
+.header .h_top{
+    height:40px;
+    background: #32373e;
+}
+.header .h_top .topCon{
+    height:40px;
+}
+.header .h_top .topCon .conLeft{
+    height: 40px;
+    line-height: 40px;
+}
+.header .h_top .topCon .conLeft .leftTxt1{
+    height:40px;
+}
+.header .h_top .topCon .conLeft .leftTxt1 .logo{
+    font-size:22px;
+    color:#00b38a;
+    margin-right: 32px;
+}
+.header .h_top .topCon .conLeft .leftTxt1 .city{
+    font-size:12px;
+    color:#00b38a;
+    margin-right:14px;
+}
+.header .h_top .topCon .conLeft .leftTxt1 .city1{
+    font-size:12px;
+    color:#afb5c0;
+    margin-right:36px;
+}
+.header .h_top .topCon .conLeft .ulList{
+    font-size:14px;
+}
+.header .h_top .topCon .conLeft .ulList li{
+    float:left;
+    width:70px;
+    text-align: center;
+}
+.header .h_top .topCon .conLeft .ulList li a{
+    color:#a3b5a7;
+}
+.header .h_top .topCon .conLeft .ulList li:first-child{
+    background: #24282c;
+}
+.header .h_top .topCon .conLeft .ulList li:first-child a{
+    color:#fff;
+}
+.header .h_top .topCon .conRight{
+    height:40px;
+}
+.header .h_top .topCon .conRight .ulList{
+    line-height:40px;
+    font-size:12px;
+}
+.header .h_top .topCon .conRight .ulList li{
+    float:left;
+}
+.header .h_top .topCon .conRight .ulList li a{
+    display:block;
+}
+.header .h_top .topCon .conRight .ulList li .login span{
+    background-position: -9px -32px;
+    margin-right:10px;
+}
+.header .h_top .topCon .conRight .ulList li .btn span{
+    float:left;
+    width:18px;
+    height:18px;
+    background-size:60px 106px;
+    background-image:url("../img2/sprite.png");
+    background-repeat: no-repeat;
+    margin-top:10px;
+}
+.header .h_top .topCon .conRight .ulList li a{
+    color:#93b5c0;
+}
+.header .h_top .topCon .conRight .ulList li .app{
+    color:#08d7a2;
+    margin-right:24px;
+}
+.header .h_top .topCon .conRight .ulList li .app span{
+    background-position: -33px -32px;
+}
+.header .h_top .topCon .conRight .ulList li .login2 {
+    margin-right:40px;
+}
+.header .h_top .topCon .conRight .ulList li .login2 span{
+    padding:0 12px;
+}
+.header .h_top .topCon .conRight .ulList li:last-child{
+    margin-right:8px;
+}
+.header .h_top .topCon .conRight .ulList li:last-child a{
+    color:#93b5c0;
+}
+.h_bottom{
+    position: absolute;
+    top: 70px;
+    left: 24%;
+}
+.option{
+    height: 40px;
+    background:transparent;border:1px solid #ffffff;
+}
+.head1{
+    background-color: #00b38a;
+}
+input{
+
+    height: 40px;
+    background:transparent;border:1px solid #ffffff;
+
+}
+.input22{
+    height: 40px;
+    background:transparent;border:1px solid #ffffff;
+}
+.select-input-1{
+    position: relative;
+    background-color: bisque;
+    border: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    cursor: pointer;
+    padding: 5px 25px;
+    border-radius: 25px;
+    box-shadow: 0 9px #bbb;
+}
+#add{
+    width: 80px;
+    height: 50px;
+    left: 280px;
+    top: 130px;
+    position: absolute;
+    background-color: #4B9DA7;
+    border-radius: 25px;
+}
+.select-input-1:hover{
+    background-color:darkseagreen;
+}
+.select-input-1:active{
+    box-shadow: 0 3px #aaa;
+    background-color: darkorange;
+    transform: translateY(4px);
+}
+.input22{
+
+}
+
+
+.content{
+    position: absolute;
+    left: 25%;
+    width: 900px;
+    height: 500px;
+    bottom: 20%;
+}
+.content1 {
+    width: 500px;
+    height: 600px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.content2 {
+    width: 500px;
+    height: 600px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.form{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 500px;
+    height: auto;
+    border: 1px solid #333333;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #99bbee;
+}
+
+.form1{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 500px;
+    height: auto;
+    border: 1px solid #333333;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #c779d0;
+}
+
+.form h3 {
+    font-size: 18px;
+}
+
+.form .item {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.form .item input, .form .item select {
+    width: 380px;
+    height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #BBBBBB;
+}
+
+.form .anniu {
+    width: 100%;
+    height: 30px;
+}
+
+.form .anniu button {
+    margin-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 14px;
+    background-color: #009688;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form .anniu .guanbi {
+    background-color: #FFFFFF;
+    color: #BBBBBB;
+    border: 1px solid #BBBBBB;
+}
+
+.form1 h3 {
+    font-size: 18px;
+}
+
+.form1 .item {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.form1 .item input, .form1 .item select {
+    width: 380px;
+    height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #BBBBBB;
+}
+
+.form1 .anniu {
+    width: 100%;
+    height: 30px;
+}
+
+.form1 .anniu button {
+    margin-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 14px;
+    background-color: #009688;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form1 .anniu .guanbi {
+    background-color: #FFFFFF;
+    color: #BBBBBB;
+    border: 1px solid #BBBBBB;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
