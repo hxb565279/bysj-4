@@ -36,7 +36,7 @@ public class HttpURLConnectionUtil {
 
             // 发送请求
             conn.connect();
-
+            System.out.println(conn.getResponseCode());
             if (conn.getResponseCode() != 200) {
                 // TODO 此处应该增加异常处理
                 return "error code";

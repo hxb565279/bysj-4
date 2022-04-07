@@ -13,21 +13,23 @@
     <!--    <script type="text/javascript" src="../static/echarts/echarts.min.js"></script>-->
     <script type="text/javascript" src="../static/echarts/world.js"></script>
     <script type="text/javascript" src="../static/js/data.js"></script>
-<style>
-    .number{
-        height: 60%;
-        justify-content: center;
-        align-items: center;
-        font-size: 29px;
-        font-weight: bold;
-    }
-    .table>tbody>tr>td {
-        border: 0px;
-    }
-    .table>thead>tr{
-        border: 0px;
-    }
-</style>
+    <style>
+        .number {
+            height: 60%;
+            justify-content: center;
+            align-items: center;
+            font-size: 29px;
+            font-weight: bold;
+        }
+
+        .table > tbody > tr > td {
+            border: 0px;
+        }
+
+        .table > thead > tr {
+            border: 0px;
+        }
+    </style>
 </head>
 <body>
 <div th:replace="main::#headerbar"></div>
@@ -38,18 +40,18 @@
                style="border: 0px solid #ffffff   ;border-collapse: collapse;   padding-right: 240px;border-radius: 10px ;align-content: center ">
             <thead>
             <tr style="border: 0px">
-                <td><p style=" color: #ce422e" class="number" th:text="新增确诊">现有确诊</p></td>
-                <td><p style=" color: #336bc2" class="number" th:text="累计确诊">累计确诊</p></td>
+                <td><p style=" color: #ce422e" class="number" th:text="累计确诊">现有确诊</p></td>
+                <td><p style=" color: #336bc2" class="number" th:text="新增确诊">累计确诊</p></td>
                 <td><p style=" color: rgba(161,44,44,0.3)" class="number" th:text="治愈">治愈</p></td>
                 <td><p style=" color: #efa79e" class="number" th:text="死亡">死亡</p></td>
             </tr>
             </thead>
             <tbody>
             <tr th:each="DataBean:${data}">
-                <td   class="number" style=" color: #efa79e" th:text="${DataBean['nowConfirm']}">nowConfirm</td>
-                <td  class="number"  style="color: #d25040" th:text="${DataBean['confirm']}">confirm</td>
-                <td   class="number" style="color: #5692ee" th:text="${DataBean['heal']}">heal</td>
-                <td  class="number"  style="color: #ee0505" th:text="${DataBean['dead']}">dead</td>
+                <td class="number" style=" color: #efa79e" th:text="${DataBean['nowConfirm']}">nowConfirm</td>
+                <td class="number" style="color: #d25040" th:text="${DataBean['confirm']}">confirm</td>
+                <td class="number" style="color: #5692ee" th:text="${DataBean['heal']}">heal</td>
+                <td class="number" style="color: #ee0505" th:text="${DataBean['dead']}">dead</td>
             </tr>
             </tbody>
         </table>
@@ -59,7 +61,7 @@
 </div>
 
 <div class="row" style="border: 1px solid rgb(255,255,255);margin: 0 auto;">
-    <div class="col-12 col-sm-6" id="graph1" style="height: 500px  ;width: 100%">
+    <div class="col-12 col-sm-6 " id="graph1" style="height: 500px  ;width: 100%">
 
         <script th:inline="javascript">
             var chinaConfirm = [[${china}]];
@@ -266,9 +268,9 @@
                 }, toolbox: {
                     show: true,//是否显示工具箱开关
                     feature: {
-                        dataView: { show: true, readOnly: false },//数据视图打开并允许编辑
-                        restore: { show: true },//重新加载视图
-                        saveAsImage: { show: true },//保存为图片
+                        dataView: {show: true, readOnly: false},//数据视图打开并允许编辑
+                        restore: {show: true},//重新加载视图
+                        saveAsImage: {show: true},//保存为图片
                     },
                 },
                 visualMap: { //左侧小导航图标
@@ -349,7 +351,7 @@
         </script>
     </div>
 
-    <div class="col-6 col-sm-6" id="graph2" style="height: 500px">
+    <div class="col-6 col-sm-6 " id="graph2" style="height: 500px">
         <script th:inline="javascript">
             var myChart = echarts.init(document.getElementById('graph2'));
             const colors = ['#5470C6', '#91CC75', '#EE6666'];
@@ -374,9 +376,9 @@
                 }, toolbox: {
                     show: true,//是否显示工具箱开关
                     feature: {
-                        dataView: { show: true, readOnly: false },//数据视图打开并允许编辑
-                        restore: { show: true },//重新加载视图
-                        saveAsImage: { show: true },//保存为图片
+                        dataView: {show: true, readOnly: false},//数据视图打开并允许编辑
+                        restore: {show: true},//重新加载视图
+                        saveAsImage: {show: true},//保存为图片
                     },
                 },
                 legend: {
@@ -454,7 +456,7 @@
 
         </script>
     </div>
-    <div class="col-6 col-sm-6" id="graph5" style="height: 500px">
+    <div class="col-6 col-sm-6 " id="graph5" style="height: 500px">
         <script th:inline="javascript">
             // 基于准备好的dom，初始化echarts实例
             var str = [[${datalist2}]];
@@ -654,7 +656,7 @@
         </script>
     </div>
 
-    <div class="col-6 col-sm-6" id="graph3" style="height: 500px">
+    <div class="col-6 col-sm-6 " id="graph3" style="height: 500px">
         <script th:inline="javascript">
             var option;
             var chartDom = document.getElementById('graph3');
@@ -671,38 +673,38 @@
                 option = {
                     dataset: {
                         source: [
-                            [  'score','新增人数', '国家'],
-                            [countryConfirm[0],countryConfirm[0], countryName[0]],
-                            [countryConfirm[1],countryConfirm[1], countryName[1]],
-                            [countryConfirm[2],countryConfirm[2], countryName[2]],
-                            [countryConfirm[3],countryConfirm[3], countryName[3]],
-                            [countryConfirm[4],countryConfirm[4], countryName[4]],
-                            [countryConfirm[5],countryConfirm[5], countryName[5]],
-                            [countryConfirm[6],countryConfirm[6], countryName[6]],
-                            [countryConfirm[7],countryConfirm[7], countryName[7]],
-                            [countryConfirm[8],countryConfirm[8], countryName[8]],
-                            [countryConfirm[9],countryConfirm[9], countryName[9]],
-                            [countryConfirm[10],countryConfirm[10], countryName[10]],
-                            [countryConfirm[11],countryConfirm[11], countryName[11]]
+                            ['score', '新增人数', '国家'],
+                            [countryConfirm[0], countryConfirm[0], countryName[0]],
+                            [countryConfirm[1], countryConfirm[1], countryName[1]],
+                            [countryConfirm[2], countryConfirm[2], countryName[2]],
+                            [countryConfirm[3], countryConfirm[3], countryName[3]],
+                            [countryConfirm[4], countryConfirm[4], countryName[4]],
+                            [countryConfirm[5], countryConfirm[5], countryName[5]],
+                            [countryConfirm[6], countryConfirm[6], countryName[6]],
+                            [countryConfirm[7], countryConfirm[7], countryName[7]],
+                            [countryConfirm[8], countryConfirm[8], countryName[8]],
+                            [countryConfirm[9], countryConfirm[9], countryName[9]],
+                            [countryConfirm[10], countryConfirm[10], countryName[10]],
+                            [countryConfirm[11], countryConfirm[11], countryName[11]]
 
 
                         ]
                     }, toolbox: {
                         show: true,//是否显示工具箱开关
                         feature: {
-                            dataView: { show: true, readOnly: false },//数据视图打开并允许编辑
-                            restore: { show: true },//重新加载视图
-                            saveAsImage: { show: true },//保存为图片
+                            dataView: {show: true, readOnly: false},//数据视图打开并允许编辑
+                            restore: {show: true},//重新加载视图
+                            saveAsImage: {show: true},//保存为图片
                         },
                     },
                     grid: {containLabel: true},
                     xAxis: {name: '新增人数'},
-                    yAxis: {type:  'category'},
+                    yAxis: {type: 'category'},
                     visualMap: {
                         orient: 'horizontal',
                         left: 'center',
-                        min:0,
-                        max:500000,
+                        min: 0,
+                        max: 500000,
                         text: ['High Score', 'Low Score'],
                         // Map the score column to color
                         dimension: 0,
@@ -727,21 +729,88 @@
             }
         </script>
     </div>
-    <div class="col-6 col-sm-6" style="height: 500px">
+    <div class="col-6 col-sm-6 " id="graph4" style="height: 500px">
         <script th:inline="javascript">
 
+            var chartDom = document.getElementById('graph4');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                title: {
+                    text: '2021年确诊人数'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['中国', '印度', '塞尔维亚', '美国']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+
+                    data: ['一月', '2月', '3月', '4月', '5月', '6月', '7月']
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        format: '{value (K)人}'
+                    },
+                },
+                series: [
+                    {
+                        name: '中国',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [8.8301, 9.0422, 9.1082, 9.1955, 10.2203, 10.3484, 11.3088]
+                    },
+                    {
+                        name: '印度',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [3.5365, 22.6670, 54.8318, 16.95988, 376.9523, 87.28795, 105.12093]
+                    },
+                    {
+                        name: '塞尔维亚',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [0.150, 1.0011, 2.4528, 4.6412, 9.9886, 31.8273, 50.2622]
+                    },
+                    {
+                        name: '美国',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [49.6335, 112.7733, 26.78202, 57.3557, 133.85555, 288.71556, 320.31455]
+                    }
+
+                ]
+            };
+
+            option && myChart.setOption(option);
 
         </script>
     </div>
 
-    <div class="col-6 col-sm-6" style="height: 500px">
+    <div class="col-6 col-sm-6 " style="height: 500px">
         <script th:inline="javascript">
 
 
         </script>
     </div>
     <br>
-    <div class="col-md-12">
+    <div class="col-md-12 ">
 
         <table class="table table-hover" style="border:   solid rgba(238,26,26,0.3);border-radius: 10px ">
             <thead>

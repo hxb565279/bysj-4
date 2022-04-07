@@ -3,6 +3,9 @@ package com.hxb.demo10.serviceimpl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import com.hxb.demo10.bean.DataBean;
+import com.hxb.demo10.bean.IDBean;
+import com.hxb.demo10.bean.USABean;
+import com.hxb.demo10.handller.DataHandler2;
 import com.hxb.demo10.mapper.DataMapper;
 import com.hxb.demo10.handller.DataHandler;
 
@@ -42,6 +45,16 @@ public class DataServiceImpl extends ServiceImpl<DataMapper, DataBean>
         List<DataBean> result = null;
         try {
             result = DataHandler.getData4();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    @Override
+    public List<USABean> list6() {
+        List<USABean> result = null;
+        try {
+            result = DataHandler2.getData();
         } catch (Exception e) {
             e.printStackTrace();
         }
