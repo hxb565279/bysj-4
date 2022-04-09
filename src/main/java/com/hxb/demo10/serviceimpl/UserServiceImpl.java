@@ -35,6 +35,8 @@ public class UserServiceImpl implements UserService {
         return this.userMapper.selectAllUser();
     }
 
+
+
     @Override
     public UserBean getUserById(int id) {
         return this.userMapper.getUserById(id);

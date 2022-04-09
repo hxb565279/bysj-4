@@ -19,6 +19,10 @@ public class DataController2 {
     private DataService dataService;
 
 
+
+
+
+
     @GetMapping("/MessagePQMap")
     public String list(Model model) {
         List<DataBean> dataList = dataService.list();

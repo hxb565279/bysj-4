@@ -8,12 +8,32 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
  * 实时更新获取网站数据
  */
 public class HttpClientUtil {
-
+    public void doGet1(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String uri = request.getRequestURI();//返回请求行中的资源名称
+        String url = request.getRequestURL().toString();//获得客户端发送请求的完整url
+        String ip = request.getRemoteAddr();//返回发出请求的IP地址
+        String params = request.getQueryString();//返回请求行中的参数部分
+        String host=request.getRemoteHost();//返回发出请求的客户机的主机名
+        int port =request.getRemotePort();//返回发出请求的客户机的端口号。
+        System.out.println(ip);
+        System.out.println(url);
+        System.out.println(uri);
+        System.out.println(params);
+        System.out.println(host);
+        System.out.println(port);
+    }
     public static String doGet(String urlStr) {
+
         // 提供了 闭合的httpclient对象
         CloseableHttpClient httpClient = null;
         // 也提供了  闭合的响应对象

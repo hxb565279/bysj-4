@@ -18,7 +18,7 @@
 <body>
 <div th:replace="main::#headerbar"></div>
 
-<div   id="sidbar" class="container-fluid row">
+<div id="sidbar" class="container-fluid row">
     <div class="row col-md-3">
         <div class="col-md-9">
             <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
@@ -115,15 +115,22 @@
         <br>
         <div class="page-header"><h2 th:text="国内疫情情况">国内疫情情况如下</h2></div>
         <br>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">areae</label>
+                <div class="input-group">
+                    <div class="input-group-addon">地区</div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                    <div class="input-group-addon"></div>
+                </div>
+            </div>
+            <button type="submit"  onclick="updateUser1()" class="btn btn-primary">查询</button>
+        </form>
 
-<!--        <label>-->
-<!--            <a class="btn btn-sm" th:href="@{/(lan='zh_CN')}">中文</a>-->
-<!--            <a class="btn btn-sm" th:href="@{/(lan='en_US')}">英文</a>-->
-<!--        </label>-->
         <table class="table table-hover" style="border: 1px  solid #000000;">
             <thead>
             <tr>
-                <th><p th:text="序号">地区</p></th>
+                <th><p th:text="序号">序号</p></th>
                 <th><p th:text="地区">地区</p></th>
                 <th><p th:text="现有确诊">现有确诊</p></th>
                 <th><p th:text="累计确诊">累计确诊</p></th>
@@ -133,17 +140,35 @@
             </thead>
             <tbody>
             <tr th:each="DataBean:${dataList}">
-                <td  class="a12  " th:text="${DataBean['id']  }">name</td>
+                <td class="a12  " th:text="${DataBean['id']  }">name</td>
                 <td th:text="${DataBean['area']  }">name</td>
-                <td  class="info"  th:text="${DataBean['nowConfirm']}">nowConfirm</td>
+                <td class="info" th:text="${DataBean['nowConfirm']}">nowConfirm</td>
                 <td th:text="${DataBean['confirm']}">confirm</td>
                 <td th:text="${DataBean['heal']}">heal</td>
-                <td  class="danger"  th:text="${DataBean['dead']}">dead</td>
+                <td class="danger" th:text="${DataBean['dead']}">dead</td>
             </tr>
             </tbody>
 
             <script>
-            document.getElementsByClassName("a12");
+                document.getElementsByClassName("a12");
+                //根据ID显示数据
+                function updateUser1() {
+                    var name =    document.getElementById("exampleInputAmount");
+                    $.ajax({
+                        type: "get",
+                        url: "/SelectMPQ",
+                        data: {"area": name},
+                        success: function (data) {
+
+                        }
+                    })
+                }
+
+
+
+
+
+
             </script>
         </table>
     </div>

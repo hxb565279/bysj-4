@@ -18,7 +18,6 @@
     </style>
 </head>
 <body>
-
 <div th:replace="main::#headerbar"></div>
 <div id="sidbar" class="container-fluid row">
     <div class="row col-md-3">
@@ -97,7 +96,6 @@
                         姓名： 和学博
                         学号： 18027240065
                         计算机科学与技术软件外包1班
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -128,7 +126,7 @@
                     subtext: '仅供参考',
                     x: 'center'
                 },
-                tooltip: {  // 提示框组件
+                tooltip: {
                     trigger: 'item'
                 },
                 series: [
@@ -157,18 +155,11 @@
             chart.setOption(option)
 
         </script>
-
-
-        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
         <div id="graph2" style="width: 900px;height:500px;"></div>
-
         <script th:inline="javascript">
             var myChart = echarts.init(document.getElementById('graph2'), 'dark');
-
             var nameStr = [[${nameList}]];
             var fromAbroadStr = [[${fromAbroadList}]];
-
-            // 指定图表的配置项和数据
             var option = {
                 title: {  // 标题组件
                     text: '境外输入省市TOP24'
@@ -181,10 +172,8 @@
                     left: "10%",
                     right: "10%",
                     bottom: "15%"
-
                      },
                 xAxis: {
-                    // 转化为json对象
                     data: JSON.parse(nameStr),
                     type:'category',
                     axisTick: {
@@ -196,11 +185,9 @@
                         rotate: -30
                     },
                     interval: 0
-
                 },
                 yAxis: {
                     type: 'value',
-
                 },
                 series: [
                     {
@@ -211,32 +198,26 @@
                     }
                 ]
             };
-            // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
         </script>
 
-        <br>
-        <div id="graph1" style="width: 800px;height:500px;"></div>
 
+        <div id="graph1" style="width: 800px;height:500px;"></div>
         <script th:inline="javascript">
             var myChart = echarts.init(document.getElementById('graph1'));
-
             var dateStr = [[${dateList}]];
             var nowConfirmStr = [[${nowConfirmList}]];
-
-            // 指定图表的配置项和数据
             var option = {
-                title: {  // 标题组件
+                title: {
                     text: '全国现有确诊趋势'
                 },
-                tooltip: {  // 提示框组件
+                tooltip: {
                     trigger: 'axis'
                 },
-                legend: {  // 曲线含义说明
+                legend: {
                     data: ['现有确诊']
                 },
                 xAxis: {
-                    // 转化为json对象
                     data: JSON.parse(dateStr)
                     // data: dateStr
                 },
@@ -246,25 +227,19 @@
                 series: [{
                     name: '现有确诊',
                     data: JSON.parse(nowConfirmStr),
-                    // data: nowConfirmStr,
                     type: 'line'
                 }]
             };
-
-            // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
         </script>
-
 
         <div id="graph5" style="width: 800px;height:500px;"></div>
 
         <script th:inline="javascript">
             var myChart = echarts.init(document.getElementById('graph5'));
-
             var addDateStr = [[${addDateList}]];
             var addConfirmStr = [[${addConfirmList}]];
             var addSuspectStr = [[${addSuspectList}]];
-
             var option = {
                 title: {  // 标题组件
                     text: '全国疫情新增趋势'
@@ -292,27 +267,18 @@
                     type: 'line'
                 }]
             };
-
-            // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
         </script>
 
-
-        <br>
         <div id="graph3" style="width: 800px;height:500px;"></div>
-
         <script th:inline="javascript">
-            // 基于准备好的dom，初始化echarts实例
             var myChart = echarts.init(document.getElementById('graph3'));
-
             var str = [[${pieList}]];
-
-            // 指定图表的配置项和数据
             var option = {
-                title: {  // 标题组件
+                title: {
                     text: '全国现有确诊构成'
                 },
-                tooltip: {  // 提示框组件
+                tooltip: {
                     trigger: 'axis'
                 },
                 series: [
@@ -324,14 +290,10 @@
                     }
                 ]
             };
-
-            // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
         </script>
 
     </div>
 </div>
-
-
 </body>
 </html>

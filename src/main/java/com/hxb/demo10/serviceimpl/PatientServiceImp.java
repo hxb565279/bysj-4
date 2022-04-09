@@ -22,6 +22,11 @@ public class PatientServiceImp implements PatientService {
         return dao.findAll();
     }
 
+    @Override
+    public List<Patient> findAll() {
+        return dao.findAll();
+    }
+
 
     @Override
     public void add(Patient patient) {

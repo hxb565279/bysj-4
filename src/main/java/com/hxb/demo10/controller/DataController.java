@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.hxb.demo10.bean.GraphAddBean;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +20,29 @@ import java.util.List;
 public class DataController {
     @Autowired
     private DataService dataService;
+
+    @RequestMapping("/SelectMPQ")
+    @ResponseBody
+    public String list_select(Model model,String name){
+        List<DataBean> dataList = dataService.list3();
+        List<DataBean> dataList2 = new ArrayList<>();
+        int count=0;
+        for ( int i=0;i<dataList.size();i++){
+           if(name  ==    dataList.get(i).getArea()){
+               dataList2.get(count).setArea(name);
+               dataList2.get(count).setConfirm(dataList.get(i).getConfirm());
+               dataList2.get(count).setNowConfirm(dataList.get(i).getNowConfirm());
+               dataList2.get(count).setDead(dataList.get(i).getDead());
+               dataList2.get(count).setHeal(dataList.get(i).getHeal());
+               count++;
+           }
+
+        }
+        model.addAttribute("selectlist",dataList2);
+
+        return "MessagePQ";
+    }
+
 
 
     @GetMapping("/MessagePQ")

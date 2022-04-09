@@ -50,7 +50,9 @@ public class DataHandler {
         saveData();
     }
 
-
+    public static void main(String[] args) {
+        System.out.println(getData());
+    }
     //国内
     public static List<DataBean> getData() {
 

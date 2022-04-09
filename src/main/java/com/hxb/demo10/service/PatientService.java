@@ -12,6 +12,8 @@ public interface PatientService {
     //查找所有病患
     public List<Patient> findAll(int size, int page);
 
+    public List<Patient> findAll();
+
     //添加病患
     public void add(Patient patient);
     //更新病患信息
